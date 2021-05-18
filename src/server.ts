@@ -1,3 +1,4 @@
+import { Router } from 'express';
 /* yarn add typescript -D
 //yarn add tsc --init
 yarn add express
@@ -10,15 +11,14 @@ editor config.
 yarn add eslint -D
 yarn eslint --init
 install eslink vscode
+yarn add -D eslint-import-resolver-typescript
+yarn dev:server
 */
 import express from 'express';
-
+import routes from './routes/index';
 const app = express();
-
-app.get('/',(request,response) => {
-  return response.json({ message: "Olá!"});
-});
+app.use(routes);
 
 app.listen(3333,() => {
-  console.log('🎈Server is on 3333🎈')
+  console.log('🎈Server online porta 3333🎈');
 });
